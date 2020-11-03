@@ -72,7 +72,7 @@
 		}).addTo(mymap);
 
 		// load GeoJSON from an external file and add it to the map
-		$.getJSON("https://embed.github.com/view/geojson/Chian-Yu/lab2part2/blob/main/GDACSEventTimeLine.geojson",function(data){
+		$.getJSON("https://github.com/Chian-Yu/lab2part2/blob/main/GDACSEventTimeLine.geojson",function(data){
 			L.geoJson(data, {
 					pointToLayer: function(feature, latlng){
 							var radiusSize,
