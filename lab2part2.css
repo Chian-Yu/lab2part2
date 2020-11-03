@@ -1,0 +1,13 @@
+#map{
+  height: 500px;
+}
+body{
+  font-family: 'Arial', serif;
+}
+ul{
+  list-style-type: none;
+}
+svg{
+  width: 33px;
+  height: 33px;
+}
