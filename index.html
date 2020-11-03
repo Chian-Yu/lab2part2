@@ -72,7 +72,7 @@
 		}).addTo(mymap);
 
 		// load GeoJSON from an external file and add it to the map
-		$.getJSON("https://embed.github.com/view/geojson/Chian-Yu/lab2part2/blob/main/GDACSEventTimeLine.geojson",function(data){
+		$.getJSON("GDACSEventTimeLine.geojson",function(data){
 			L.geoJson(data, {
 					pointToLayer: function(feature, latlng){
 							var radiusSize,
@@ -90,7 +90,7 @@
 					}
 			  }).addTo(mymap);
 			});
-			$.getJSON("https://embed.github.com/view/geojson/Chian-Yu/lab2part2/blob/main/Yolanda%20Path%20Line.json",function(data){
+			$.getJSON("Yolanda%20Path%20Line.json",function(data){
 			    L.geoJson(data).addTo(mymap);
 			});
 			var Legend =  new L.Control.Legend({
