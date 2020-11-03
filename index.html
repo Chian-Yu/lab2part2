@@ -7,7 +7,7 @@
 	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src= "https://cdn.jsdelivr.net/npm/leaflet-legend@1.0.2/leaflet-legend.min.js"></script>
-	<link href="lab2part2.css" rel="stylesheet" >
+	<link href="lab2part2.css" rel="stylesheet"/>
 
 </head>
 
@@ -72,7 +72,7 @@
 		}).addTo(mymap);
 
 		// load GeoJSON from an external file and add it to the map
-		$.getJSON("GDACSEventTimeLine.geojson",function(data){
+		$.getJSON("https://embed.github.com/view/geojson/Chian-Yu/lab2part2/blob/main/GDACSEventTimeLine.geojson",function(data){
 			L.geoJson(data, {
 					pointToLayer: function(feature, latlng){
 							var radiusSize,
@@ -90,6 +90,7 @@
 					}
 			  }).addTo(mymap);
 			});
+			
 			var Legend =  new L.Control.Legend({
 				position: 'bottomright',
 			});
