@@ -16,6 +16,22 @@
 	<div id="map"></div>
 	<p>This map depicts the track of Typhoon Haiyan. Data comes from the <a href="https://data.humdata.org/search?q=Typhoon%20Yolanda%2FHaiyan%20sources&ext_page_size=25&sort=score%20desc%2C%20if%20desc">The Humanitarian Data Exchange</a>. Super Typhoon Haiyan, a Category 5 storm, hit the Philippines on Nov. 8, 2013. And it was one of the most powerful storms in 21 century. Typhoon is visualized with proportional symbols where Typhoon of a higher class is depicted with larger circle markers. Click on a circle for more information about the typhoon.</p>
 	<div id="legend">
+		<h2><b>Legend</b></h2>
+		<ul>
+			<li>
+				<svg width="33" height="24">
+					<rect x="0" y="12" width="28" height="12" stroke="blue" stroke-width="2" fill="blue" fill-opacity=".3"/>
+				</svg>
+				<text>Philippines Affected Cities</text>
+			</li>
+			<li>
+				<svg width="33" height="24">
+					<rect x="0" y="18" width="28" height="5" fill="red"/>
+				</svg>
+				<text>Typhoon Track</text>
+			</li>
+		</ul>
+		<br>
 		<h3>Typhoon Classification</h3>
 		<ul>
 			<li>
@@ -64,13 +80,14 @@
 	</div>
 	<!-- code where we build the map and its functionality -->
 	<script>
-		var mymap = L.map('map').setView([10, 135], 4);
+		var mymap = L.map('map').setView([10, 138], 4);
 
 		var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		}).addTo(mymap);
 
-		// load GeoJSON from an external file and add it to the map
+
+
 		$.getJSON("GDACSEventTimeLine.geojson",function(data){
 		 	L.geoJson(data, {
 				  pointToLayer: function(feature, latlng){
@@ -92,6 +109,15 @@
 
 		$.getJSON("YolandaPathLine.json",function(data){
 		    L.geoJson(data, {color: 'red', weight: 5, opacity: 0.5}).addTo(mymap);
+		});
+
+		$.getJSON("AffectedAreas.json",function(data){
+		    L.geoJson(data, {
+					polygonToLayer: function(feature, latlng){
+						var area = L.polygon(latlng,{color: 'blue', weight: 1, opacity: 0.8});
+						return area;
+						}
+				}).addTo(mymap);
 		});
 
 		var Legend =  new L.Control.Legend({
