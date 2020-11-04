@@ -36,45 +36,45 @@
 		<ul>
 			<li>
 				<svg width="33" height="24">
-					<circle cx="16" cy="20" r="2" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="20" r="2"/>
 				</svg>
 				<text>Tropical depression</text>
 			</li>
 			<li>
 				<svg width="33" height="24">
-					<circle cx="16" cy="18" r="4" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="18" r="4"/>
 				</svg>
 				<text>Tropical storm</text>
 			</li>
 			<li>
 				<svg width="33" height="24">
-					<circle cx="16" cy="15" r="6" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="15" r="6"/>
 				</svg>
 				<text>Category 1</text>
 			</li>
 			<li>
 				<svg width="33" height="26">
-					<circle cx="16" cy="16" r="8" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="16" r="8"/>
 				</svg>
 				<text>Category 2</text>
 			</li>
 			<li>
 				<svg width="33" height="30">
-					<circle cx="16" cy="16" r="10" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="16" r="10"/>
 				</svg>
 				<text>Category 3</text>
 			</li>
 			<li>
 				<svg width="33" height="30">
-					<circle cx="16" cy="14" r="12" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="14" r="12"/>
 				</svg>
 				<text>Category 4</text>
 			</li>
 			<li>
 				<svg width="33" height="33">
-					<circle cx="16" cy="17" r="14" stroke="red" stroke-width="3" fill="red" fill-opacity=".4"/>
+					<circle cx="16" cy="17" r="14"/>
 				</svg>
-				<text x="0" y="0)">Category 5</text>
+				<text>Category 5</text>
 			</li>
 		</ul>
 	</div>
@@ -85,7 +85,6 @@
 		var basemap = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		}).addTo(mymap);
-
 
 
 		$.getJSON("GDACSEventTimeLine.geojson",function(data){
@@ -108,7 +107,7 @@
 		});
 
 		$.getJSON("YolandaPathLine.json",function(data){
-		    L.geoJson(data, {color: 'red', weight: 5, opacity: 0.5}).addTo(mymap);
+			L.geoJson(data, {color: 'red', weight: 5, opacity: 0.5}).addTo(mymap);
 		});
 
 		$.getJSON("AffectedAreas.json",function(data){
