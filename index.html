@@ -112,20 +112,15 @@
 		});
 
 		$.getJSON("AffectedAreas.json",function(data){
-		    L.geoJson(data, {
-					polygonToLayer: function(feature, latlng){
-						var area = L.polygon(latlng,{color: 'blue', weight: 1, opacity: 0.8});
-						return area;
-						}
-				}).addTo(mymap);
+		    L.geoJson(data, {color: 'blue', weight: 1, opacity: 0.8}).addTo(mymap);
 		});
 
 		var Legend =  new L.Control.Legend({
 			position: 'bottomright',
 		});
 
-			mymap.addControl(Legend);
-			$(".legend-container").append( $("#legend") );
-			</script>
+		mymap.addControl(Legend);
+		$(".legend-container").append( $("#legend") );
+		</script>
 </body>
 </html>
